@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  tileserver-gl:
+    image: maptiler/tileserver-gl
+    container_name: tileserver-gl
+    network_mode: host
+    ports:
+      - "8080:80"
+    volumes:
+      - ./data:/data
+      - ./styles:/styles
+      - ./styles:/config/styles
+      - ./styles/fonts:/fonts
+      - ./config:/config
+    command: >
+      --config=/config/config.json
+    stdin_open: true
+    tty: true
+    restart: unless-stopped

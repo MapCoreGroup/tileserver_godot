@@ -1,0 +1,44 @@
+{
+  "options": {
+    "paths": {
+      "fonts": "/fonts"
+    }
+  },
+  "styles": {
+    "osm-bright": {
+      "style": "/styles/osm-bright/style.json",
+      "tilejson": {
+        "vector_layers": "all"
+      }
+    },
+    "hybrid": {
+      "style": "/styles/hybrid/style.json"
+    },
+    "mixtrans": {
+      "style": "/styles/mixtrans/style.json"
+    },
+    "mixorthotrans": {
+      "style": "/styles/mixorthotrans/style.json"
+    },
+    "trans-places": {
+      "style": "/styles/trans-places/style.json"
+    }
+  },
+  "data": {
+    "openmaptiles": {
+      "mbtiles": "/data/israel.mbtiles"
+    },
+    "orthophoto": {
+      "mbtiles": "/data/israel_ortho.mbtiles"
+    },
+    "orthophoto_show": {
+      "mbtiles": "/data/israel_ortho.mbtiles"
+    },
+    "trans_overlay": {
+      "mbtiles": "/data/israel_trans.mbtiles"
+    },
+    "dem": {
+      "mbtiles": "/data/israel_dem.mbtiles"
+    }
+  }
+}
