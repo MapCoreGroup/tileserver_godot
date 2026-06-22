@@ -36,6 +36,9 @@
     },
     "trans_overlay": {
       "mbtiles": "/data/poland_trans.mbtiles"
+    },
+    "dem": {
+      "mbtiles": "/data/poland_dem.mbtiles"
     }
   }
 }

@@ -33,20 +33,29 @@ MINZOOM=7
 TMPDIR=$(mktemp -d)
 trap 'rm -rf "$TMPDIR"' EXIT
 
-# eio (elevation) refuses to download more than 9 SRTM tiles at once, so we
-# clip in latitude bands of 2 degrees and merge the results with GDAL.
-echo "Downloading/clipping SRTM1 in latitude bands ($BOTTOM..$TOP)..."
-band_bottom=$(python3 -c "import math;print(math.floor($BOTTOM))")
+# eio (elevation) refuses to download more than ~9 SRTM tiles at once, so we clip in a 2-D grid of
+# ~2°×2° chunks (≤9 tiles each) and merge with GDAL. Works for regions of any size (e.g. Poland).
+echo "Downloading/clipping SRTM1 in a 2°x2° grid ($LEFT,$BOTTOM .. $RIGHT,$TOP)..."
+left_floor=$(python3 -c "import math;print(math.floor($LEFT))")
+right_ceil=$(python3 -c "import math;print(math.ceil($RIGHT))")
+bottom_floor=$(python3 -c "import math;print(math.floor($BOTTOM))")
 top_ceil=$(python3 -c "import math;print(math.ceil($TOP))")
 i=0
 parts=()
-while [ "$band_bottom" -lt "$top_ceil" ]; do
-  band_top=$((band_bottom + 2))
-  part="$TMPDIR/dem_$i.tif"
-  eio --product SRTM1 clip -o "$part" --bounds "$LEFT" "$band_bottom" "$RIGHT" "$band_top"
-  parts+=("$part")
-  band_bottom=$band_top
-  i=$((i + 1))
+lon=$left_floor
+while [ "$lon" -lt "$right_ceil" ]; do
+  lon_next=$((lon + 2))
+  lat=$bottom_floor
+  while [ "$lat" -lt "$top_ceil" ]; do
+    lat_next=$((lat + 2))
+    part="$TMPDIR/dem_$i.tif"
+    echo "  chunk lon $lon..$lon_next lat $lat..$lat_next"
+    eio --product SRTM1 clip -o "$part" --bounds "$lon" "$lat" "$lon_next" "$lat_next"
+    parts+=("$part")
+    lat=$lat_next
+    i=$((i + 1))
+  done
+  lon=$lon_next
 done
 
 echo "Merging ${#parts[@]} band(s)..."
