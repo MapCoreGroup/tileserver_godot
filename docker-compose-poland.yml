@@ -11,8 +11,8 @@ services:
       - ./data:/data
       - ./styles:/styles
       - ./config:/config
-    command: >
-      --config=/config/poland_config.json
+    entrypoint: ["/bin/bash", "/config/entrypoint.sh"]
+    command: ["/config/poland_config.json"]
     stdin_open: true
     tty: true
     restart: unless-stopped

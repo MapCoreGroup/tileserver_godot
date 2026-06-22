@@ -13,8 +13,8 @@ services:
       - ./styles:/config/styles
       - ./styles/fonts:/fonts
       - ./config:/config
-    command: >
-      --config=/config/config.json
+    entrypoint: ["/bin/bash", "/config/entrypoint.sh"]
+    command: ["/config/config.json"]
     stdin_open: true
     tty: true
     restart: unless-stopped
