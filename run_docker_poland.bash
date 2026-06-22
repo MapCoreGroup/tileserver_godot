@@ -5,7 +5,7 @@ docker run --rm -it --network=host \
   -v "$PWD/styles:/styles" \
   -v "$PWD/config:/config" \
   -p 8080:80 \
-  maptiler/tileserver-gl-light \
+  maptiler/tileserver-gl \
   --config=/config/poland_config.json
 #  --verbose
 #   -v "$PWD/public:/usr/src/app/public" \

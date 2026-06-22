@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   tileserver-gl:
-    image: maptiler/tileserver-gl-light
+    image: maptiler/tileserver-gl
     container_name: tileserver-gl
     network_mode: host
     ports:
