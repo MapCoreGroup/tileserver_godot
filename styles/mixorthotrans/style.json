@@ -62,7 +62,7 @@
     }
   },
   "sprite": "/styles/osm-bright/sprite",
-  "glyphs": "/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "http://localhost:8080/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background-ortho",
@@ -73,48 +73,6 @@
       "id": "trans-overlay",
       "type": "raster",
       "source": "trans_overlay"
-    },
-    {
-      "id": "test-hebrew-label",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "filter": [
-        "has",
-        "name"
-      ],
-      "layout": {
-        "text-field": [
-          "coalesce",
-          [
-            "get",
-            "name:he"
-          ],
-          [
-            "get",
-            "name:nonlatin"
-          ],
-          [
-            "get",
-            "name:latin"
-          ],
-          [
-            "get",
-            "name"
-          ]
-        ],
-        "text-font": [
-          "Noto Sans Hebrew Regular",
-          "Noto Naskh Arabic Regular",
-          "Noto Sans Regular"
-        ],
-        "text-size": 20
-      },
-      "paint": {
-        "text-color": "#d00",
-        "text-halo-color": "#fff",
-        "text-halo-width": 2
-      }
     },
     {
       "id": "waterway-name",

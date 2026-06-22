@@ -48,7 +48,7 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "/data/openmaptiles.json"
+      "url": "mbtiles://{openmaptiles}"
     },
     "trans_overlay": {
       "type": "raster",
@@ -56,57 +56,15 @@
       "tileSize": 256
     }
   },
-  "sprite": "/styles/osm-bright/sprite",
-  "glyphs": "/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "http://localhost:8080/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
       "type": "background",
       "paint": {
         "background-color": "#f8f4f0"
-      }
-    },
-    {
-      "id": "test-hebrew-label",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "filter": [
-        "has",
-        "name"
-      ],
-      "layout": {
-        "text-field": [
-          "coalesce",
-          [
-            "get",
-            "name:he"
-          ],
-          [
-            "get",
-            "name:nonlatin"
-          ],
-          [
-            "get",
-            "name:latin"
-          ],
-          [
-            "get",
-            "name"
-          ]
-        ],
-        "text-font": [
-          "Noto Sans Hebrew Regular",
-          "Noto Naskh Arabic Regular",
-          "Noto Sans Regular"
-        ],
-        "text-size": 20
       },
-      "paint": {
-        "text-color": "#d00",
-        "text-halo-color": "#fff",
-        "text-halo-width": 2
-      }
+      "layout": {}
     },
     {
       "id": "landcover-glacier",
@@ -248,7 +206,8 @@
       ],
       "paint": {
         "fill-color": "#e0e4dd"
-      }
+      },
+      "layout": {}
     },
     {
       "id": "landuse-hospital",
@@ -265,7 +224,8 @@
       ],
       "paint": {
         "fill-color": "#fde"
-      }
+      },
+      "layout": {}
     },
     {
       "id": "landuse-school",
@@ -282,7 +242,8 @@
       ],
       "paint": {
         "fill-color": "#f0e8f8"
-      }
+      },
+      "layout": {}
     },
     {
       "id": "landuse-railway",
@@ -334,7 +295,8 @@
         "fill-color": "#6a4",
         "fill-opacity": 0.1,
         "fill-outline-color": "hsla(0, 0%, 0%, 0.03)"
-      }
+      },
+      "layout": {}
     },
     {
       "id": "landcover-grass",
@@ -352,7 +314,8 @@
       "paint": {
         "fill-color": "#d8e8c8",
         "fill-opacity": 1
-      }
+      },
+      "layout": {}
     },
     {
       "id": "landcover-grass-park",
@@ -370,7 +333,8 @@
       "paint": {
         "fill-color": "#d8e8c8",
         "fill-opacity": 0.8
-      }
+      },
+      "layout": {}
     },
     {
       "id": "waterway_tunnel",
@@ -900,7 +864,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "building-top",
@@ -1533,7 +1498,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "tunnel-motorway-link",
@@ -1936,7 +1902,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "ferry",
@@ -2874,7 +2841,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "highway-path-steps",
@@ -3476,7 +3444,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "railway-service-hatching",
@@ -3581,7 +3550,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "railway-hatching",
@@ -3637,7 +3607,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "bridge-motorway-link-casing",
@@ -4027,7 +3998,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "bridge-path-steps",
@@ -4137,7 +4109,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "bridge-motorway-link",
@@ -4496,7 +4469,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "bridge-railway-hatching",
@@ -4542,7 +4516,8 @@
             ]
           ]
         }
-      }
+      },
+      "layout": {}
     },
     {
       "id": "cablecar",
@@ -4876,8 +4851,8 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
-          "Noto Sans Regular",
-          "Noto Sans Italic"
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
         ],
         "text-letter-spacing": 0.2,
         "text-max-width": 5,
@@ -4924,8 +4899,8 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
-          "Noto Sans Regular",
-          "Noto Sans Italic"
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
         ],
         "text-letter-spacing": 0.2,
         "text-max-width": 5,
@@ -4980,8 +4955,8 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
-          "Noto Sans Regular",
-          "Noto Sans Italic"
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
         ],
         "text-letter-spacing": 0.2,
         "text-max-width": 5,
@@ -5036,8 +5011,8 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
-          "Noto Sans Regular",
-          "Noto Sans Italic"
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
         ],
         "text-letter-spacing": 0.2,
         "text-max-width": 5,
@@ -5088,24 +5063,13 @@
         ]
       ],
       "layout": {
-        "icon-image": "oneway",
-        "icon-padding": 2,
-        "icon-rotate": 90,
-        "icon-rotation-alignment": "map",
-        "icon-size": {
-          "stops": [
-            [
-              15,
-              0.5
-            ],
-            [
-              19,
-              1
-            ]
-          ]
-        },
         "symbol-placement": "line",
-        "symbol-spacing": 75
+        "symbol-spacing": 75,
+        "text-font": [
+          "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
+        ]
       },
       "paint": {
         "icon-opacity": 0.5
@@ -5137,24 +5101,13 @@
         ]
       ],
       "layout": {
-        "icon-image": "oneway",
-        "icon-padding": 2,
-        "icon-rotate": -90,
-        "icon-rotation-alignment": "map",
-        "icon-size": {
-          "stops": [
-            [
-              15,
-              0.5
-            ],
-            [
-              19,
-              1
-            ]
-          ]
-        },
         "symbol-placement": "line",
-        "symbol-spacing": 75
+        "symbol-spacing": 75,
+        "text-font": [
+          "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
+        ]
       },
       "paint": {
         "icon-opacity": 0.5
@@ -5192,7 +5145,6 @@
         ]
       ],
       "layout": {
-        "icon-image": "{class}_11",
         "text-anchor": "top",
         "text-field": [
           "coalesce",
@@ -5215,6 +5167,7 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-max-width": 9,
@@ -5270,7 +5223,6 @@
         ]
       ],
       "layout": {
-        "icon-image": "{class}_11",
         "text-anchor": "top",
         "text-field": [
           "coalesce",
@@ -5293,6 +5245,7 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-max-width": 9,
@@ -5347,7 +5300,6 @@
         ]
       ],
       "layout": {
-        "icon-image": "{class}_11",
         "text-anchor": "top",
         "text-field": [
           "coalesce",
@@ -5370,6 +5322,7 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-max-width": 9,
@@ -5417,10 +5370,6 @@
         ]
       ],
       "layout": {
-        "icon-allow-overlap": false,
-        "icon-ignore-placement": false,
-        "icon-image": "{class}_11",
-        "icon-optional": false,
         "text-allow-overlap": false,
         "text-anchor": "top",
         "text-field": [
@@ -5444,6 +5393,7 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-ignore-placement": false,
@@ -5476,9 +5426,28 @@
       ],
       "layout": {
         "symbol-placement": "line",
-        "text-field": "{name:nonlatin} {name:latin}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            "name:he"
+          ],
+          [
+            "get",
+            "name:nonlatin"
+          ],
+          [
+            "get",
+            "name:latin"
+          ],
+          [
+            "get",
+            "name"
+          ]
+        ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-rotation-alignment": "map",
@@ -5494,7 +5463,8 @@
               13
             ]
           ]
-        }
+        },
+        "visibility": "visible"
       },
       "paint": {
         "text-color": "hsl(30, 23%, 62%)",
@@ -5525,9 +5495,28 @@
       ],
       "layout": {
         "symbol-placement": "line",
-        "text-field": "{name:nonlatin} {name:latin}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            "name:he"
+          ],
+          [
+            "get",
+            "name:nonlatin"
+          ],
+          [
+            "get",
+            "name:latin"
+          ],
+          [
+            "get",
+            "name"
+          ]
+        ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-rotation-alignment": "map",
@@ -5543,12 +5532,14 @@
               13
             ]
           ]
-        }
+        },
+        "visibility": "visible"
       },
       "paint": {
         "text-color": "#765",
         "text-halo-blur": 0.5,
-        "text-halo-width": 1
+        "text-halo-width": 1,
+        "text-halo-color": "#ffffff"
       }
     },
     {
@@ -5567,9 +5558,28 @@
       ],
       "layout": {
         "symbol-placement": "line",
-        "text-field": "{name:nonlatin} {name:latin}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            "name:he"
+          ],
+          [
+            "get",
+            "name:nonlatin"
+          ],
+          [
+            "get",
+            "name:latin"
+          ],
+          [
+            "get",
+            "name"
+          ]
+        ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-rotation-alignment": "map",
@@ -5585,12 +5595,14 @@
               13
             ]
           ]
-        }
+        },
+        "visibility": "visible"
       },
       "paint": {
         "text-color": "#765",
         "text-halo-blur": 0.5,
-        "text-halo-width": 1
+        "text-halo-width": 1,
+        "text-halo-color": "#ffffff"
       }
     },
     {
@@ -5640,12 +5652,19 @@
         "text-field": "{ref}",
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-rotation-alignment": "viewport",
-        "text-size": 10
+        "text-size": 12,
+        "icon-text-fit": "both",
+        "visibility": "none"
       },
-      "paint": {}
+      "paint": {
+        "text-color": "#000000",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 0.8
+      }
     },
     {
       "id": "highway-shield-us-interstate",
@@ -5696,13 +5715,18 @@
         "text-field": "{ref}",
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-rotation-alignment": "viewport",
-        "text-size": 10
+        "text-size": 12,
+        "icon-text-fit": "both",
+        "visibility": "none"
       },
       "paint": {
-        "text-color": "rgba(0, 0, 0, 1)"
+        "text-color": "#000000",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 0.8
       }
     },
     {
@@ -5751,13 +5775,18 @@
         "text-field": "{ref}",
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-rotation-alignment": "viewport",
-        "text-size": 10
+        "text-size": 12,
+        "icon-text-fit": "both",
+        "visibility": "none"
       },
       "paint": {
-        "text-color": "rgba(0, 0, 0, 1)"
+        "text-color": "#000000",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 0.8
       }
     },
     {
@@ -5774,12 +5803,29 @@
         ]
       ],
       "layout": {
-        "icon-image": "airport_11",
-        "icon-size": 1,
         "text-anchor": "top",
-        "text-field": "{name:nonlatin}\n{name:latin}",
+        "text-field": [
+          "coalesce",
+          [
+            "get",
+            "name:he"
+          ],
+          [
+            "get",
+            "name:nonlatin"
+          ],
+          [
+            "get",
+            "name:latin"
+          ],
+          [
+            "get",
+            "name"
+          ]
+        ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-max-width": 9,
@@ -5839,6 +5885,7 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-letter-spacing": 0.1,
@@ -5900,6 +5947,7 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-max-width": 8,
@@ -5959,6 +6007,7 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-max-width": 8,
@@ -6026,6 +6075,7 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-max-width": 8,
@@ -6072,8 +6122,6 @@
         ]
       ],
       "layout": {
-        "icon-image": "star_11",
-        "icon-size": 0.8,
         "text-anchor": "left",
         "text-field": [
           "coalesce",
@@ -6096,6 +6144,7 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
           "Noto Sans Regular"
         ],
         "text-max-width": 8,
@@ -6158,8 +6207,9 @@
           ]
         ],
         "text-font": [
-          "Noto Sans Hebrew Bold",
-          "Noto Sans Bold"
+          "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
         ],
         "text-letter-spacing": 0.1,
         "text-max-width": 9,
@@ -6232,8 +6282,8 @@
         ],
         "text-font": [
           "Noto Sans Hebrew Regular",
-          "Noto Sans Regular",
-          "Noto Sans Italic"
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
         ],
         "text-max-width": 6.25,
         "text-size": {
@@ -6304,8 +6354,9 @@
           ]
         ],
         "text-font": [
-          "Noto Sans Hebrew Bold",
-          "Noto Sans Bold"
+          "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
         ],
         "text-max-width": 6.25,
         "text-size": {
@@ -6376,8 +6427,9 @@
           ]
         ],
         "text-font": [
-          "Noto Sans Hebrew Bold",
-          "Noto Sans Bold"
+          "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
         ],
         "text-max-width": 6.25,
         "text-size": {
@@ -6448,8 +6500,9 @@
           ]
         ],
         "text-font": [
-          "Noto Sans Hebrew Bold",
-          "Noto Sans Bold"
+          "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
         ],
         "text-max-width": 6.25,
         "text-size": {
@@ -6509,8 +6562,9 @@
           ]
         ],
         "text-font": [
-          "Noto Sans Hebrew Bold",
-          "Noto Sans Bold"
+          "Noto Sans Hebrew Regular",
+          "Noto Naskh Arabic Regular",
+          "Noto Sans Regular"
         ],
         "text-max-width": 6.25,
         "text-size": 14,
@@ -6530,5 +6584,6 @@
       "source": "trans_overlay"
     }
   ],
-  "id": "mixtrans"
+  "id": "bright",
+  "sprite": "https://openmaptiles.github.io/osm-bright-gl-style/sprite"
 }

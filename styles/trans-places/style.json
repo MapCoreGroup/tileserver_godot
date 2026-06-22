@@ -58,7 +58,7 @@
     }
   },
   "sprite": "/styles/osm-bright/sprite",
-  "glyphs": "/fonts/{fontstack}/{range}.pbf",
+  "glyphs": "http://localhost:8080/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "trans-base",
