@@ -38,6 +38,14 @@ for (const [id, st] of Object.entries(cfg.styles || {})) {
 }
 cfg.styles = keptStyles;
 
+// 3) pin the path root to '/'. The pruned config is written to /tmp, and tileserver-gl resolves a
+// style's relative `sprite` path against the config file's directory. Without this, sprites declared
+// as "/styles/osm-bright/sprite" resolve to /tmp/styles/... (ENOENT). Rooting at '/' makes the
+// absolute container mounts (/styles, /data, /fonts) authoritative regardless of the config location.
+cfg.options = cfg.options || {};
+cfg.options.paths = cfg.options.paths || {};
+cfg.options.paths.root = '/';
+
 if (droppedData.length) console.error(`[prune] skipped missing data: ${droppedData.join(', ')}`);
 if (droppedStyles.length) console.error(`[prune] skipped styles needing missing data: ${droppedStyles.join(', ')}`);
 console.error(`[prune] serving ${Object.keys(keptData).length} data source(s), ${Object.keys(keptStyles).length} style(s)`);
