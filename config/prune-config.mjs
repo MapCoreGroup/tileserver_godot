@@ -4,7 +4,7 @@
 // unhandled promise rejection and the process exits (1). Prints the pruned config path to stdout.
 import fs from 'fs';
 
-const cfgPath = process.argv[2] || '/config/config.json';
+const cfgPath = process.argv[2] || '/config/tileserver_godot/config.json';
 const cfg = JSON.parse(fs.readFileSync(cfgPath, 'utf8'));
 
 // 1) keep only data sources whose mbtiles file exists

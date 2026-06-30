@@ -1,5 +1,7 @@
-version: '3.8'
-
+# Company service style: everything mirrors from the shared config root
+# ~/docker_ws/ut_nav_p/config (mounted at /config). This service's files live under
+# /config/tileserver_godot/. data/styles are mounted to the absolute paths the config JSON
+# references (/data, /styles; poland fonts = /styles/fonts), so the config JSON needs no edits.
 services:
   tileserver-gl:
     image: maptiler/tileserver-gl
@@ -8,11 +10,11 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./data:/data
-      - ./styles:/styles
-      - ./config:/config
-    entrypoint: ["/bin/bash", "/config/entrypoint.sh"]
-    command: ["/config/poland_config.json"]
+      - "$HOME/docker_ws/ut_nav_p/config:/config"
+      - "$HOME/docker_ws/ut_nav_p/config/tileserver_godot/data:/data"
+      - "$HOME/docker_ws/ut_nav_p/config/tileserver_godot/styles:/styles"
+    entrypoint: /config/tileserver_godot/entrypoint.sh
+    command: config_file:=/config/tileserver_godot/poland_config.json
     stdin_open: true
     tty: true
     restart: unless-stopped
